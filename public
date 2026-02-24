@@ -32,4 +32,60 @@
 
   <script src="main.js"></script>
 </body>
-</html>
+</html>document.getElementById("uploadForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const fileInput = document.getElementById("pdfFile");
+  const detail = document.getElementById("detail").value;
+  const status = document.getElementById("status");
+
+  if (!fileInput.files.length) {
+    alert("בחר קובץ PDF");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("file", fileInput.files[0]);
+  formData.append("detail_level", detail);
+
+  status.innerText = "מעבד קובץ...";
+
+  try {
+    const response = await fetch("/api/process-pdf", {
+      method: "POST",
+      body: formData
+    });
+
+    if (!response.ok) {
+      throw new Error("שגיאה בעיבוד הקובץ");
+    }
+
+    const data = await response.json();
+
+    status.innerHTML = `
+      ✅ הסתיים<br>
+      <a href="${data.docx_url}" target="_blank">הורדת קובץ Word</a>
+    `;
+  } catch (err) {
+    status.innerText = "❌ שגיאה: " + err.message;
+  }
+});body {
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+  padding: 40px;
+}
+
+h1 {
+  color: #003366;
+}
+
+button {
+  padding: 10px 18px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#status {
+  margin-top: 20px;
+  font-weight: bold;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>PDF → הנחיות עבודה</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>יצירת הנחיות עבודה מקובץ PDF</h1>
+
+  <form id="uploadForm">
+    <input type="file" id="pdfFile" accept="application/pdf" required />
+
+    <br><br>
+
+    <label>
+      רמת פירוט:
+      <select id="detail">
+        <option value="1">קצר</option>
+        <option value="2" selected>סטנדרטי</option>
+        <option value="3">הדרכה</option>
+      </select>
+    </label>
+
+    <br><br>
+
+    <button type="submit">צור הנחיות עבודה</button>
+  </form>
+
+  <p id="status"></p>
+
+  <script src="main.js"></script>
+</body>
+</html>

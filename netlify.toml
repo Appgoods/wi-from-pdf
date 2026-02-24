@@ -1,8 +1,9 @@
 [build]
-  command = "echo '--- BEFORE BUILD ---' && pwd && ls -la && npm -v && node -v && npm ci && npm run build && echo '--- AFTER BUILD ---' && ls -la && echo '--- CHECK build ---' && (ls -la build || true) && echo '--- CHECK dist ---' && (ls -la dist || true)"
-  publish = "build"
+  command = "echo 'No build step needed'"
+  publish = "public"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+``

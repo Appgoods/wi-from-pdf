@@ -1,14 +1,12 @@
-# WI from PDF – Frontend
+[build]
+  # הדפסות לפני/אחרי build כדי לחשוף את השגיאה והפלט שנוצר
+  command = "echo '--- BEFORE BUILD ---' && pwd && node -v && npm -v && ls -la && npm ci && echo '--- RUN BUILD ---' && npm run build && echo '--- AFTER BUILD ---' && ls -la && echo '--- CHECK build ---' && (ls -la build || true) && echo '--- CHECK dist ---' && (ls -la dist || true)"
+  publish = "build"   # זמני; נעדכן ל-dist אם נראה שהפלט הוא dist
 
-Frontend לאפליקציה שממירה קובצי PDF של מוצר להנחיות עבודה (Work Instructions).
+[build.environment]
+  NODE_VERSION = "18"
 
-## מה יש כאן
-- העלאת קובץ PDF
-- בחירת רמת פירוט
-- שליחה ל‑Backend
-- קבלת קובץ Word להורדה
-
-## Backend
-ה‑Backend אינו חלק מ‑Repo זה.
-מצופה API:
-POST /api/process-pdf
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

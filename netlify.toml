@@ -1,6 +1,6 @@
 [build]
   command = "echo build"
-  publish = "."
+  publish = "public"
 
 [[redirects]]
   from = "/*"

@@ -3,22 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WI from PDF</title>
+  <title>WI from PDF – Frontend</title>
 
-  <!-- חיבור נכון ל-CSS (נתיב יחסי מתוך public) -->
+  <!-- קישור יחסי לתיקיית public -->
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-
   <header>
     <h1>יצירת הנחיות עבודה מקובץ PDF</h1>
-    <p class="subtitle">עלות בדיקה ראשונית: דף סטטי (Frontend). חיבור ל‑API ייעשה בשלב הבא.</p>
+    <p class="sub">גרסת דמו סטטית – חיבור ל‑API יתווסף בשלב הבא</p>
   </header>
 
   <main>
     <form id="uploadForm">
       <label class="block">
-        בחר קובץ PDF:
+        העלה PDF:
         <input type="file" id="pdfFile" accept="application/pdf" required />
       </label>
 
@@ -27,18 +26,4 @@
         <select id="detail">
           <option value="1">קצר</option>
           <option value="2" selected>סטנדרטי</option>
-          <option value="3">הדרכה</option>
-        </select>
-      </label>
-
-      <button type="submit">צור הנחיות עבודה</button>
-    </form>
-
-    <p id="status"></p>
-  </main>
-
-  <footer>
-    <small>גרסת MVP | נטול Build | פריסה סטטית מ‑<code>public/</code></small>
-  </footer>
-
-  <!-- חיבור נכון ל-JS (נתיב יחסי מתוך public) -->
+          <option value="3">

@@ -1,8 +1,7 @@
 [build]
-  command = "echo build"
   publish = "public"
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/api/*"
+  to = "https://example.com/api/:splat"
   status = 200

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WI from PDF – Frontend</title>
+
+  <!-- קשר נכון ל-CSS מתוך אותה תיקייה (public) -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header>
+    <h1>יצירת הנחיות עבודה מקובץ PDF</h1>
+    <p class="sub">גרסת דמו סטטית. חיבור ל‑API יתוסף בשלב הבא.</p>
+  </header>
+
+  <main>
+    <form id="uploadForm">
+      <label class="block">
+        העלה קובץ PDF:
+        <input type="file" id="pdfFile" accept="application/pdf" required />
+      </label>
+
+      <label class="block">
+        רמת פירוט:
+        <select id="detail">
+          <option value="1">קצר</option>
+          <option value="2" selected>סטנדרטי</option>
+          <option value="3">הדרכה</option>
+        </select>
+      </label>
+
+      <button type="submit">צור הנחיות עבודה</button>
+    </form>
+
+    <p id="status"></p>
+  </main>
+
+  <footer>
+    <small>פרוס מ‑<code>public/</code> ללא Build</small>
+  </footer>
+
+  <!-- קשר נכון ל-JS מתוך אותה תיקייה (public) -->
+  <script src="./main.js"></script>
+</body>
+</html>
